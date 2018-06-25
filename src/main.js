@@ -18,8 +18,8 @@ let dataCohort = () => {
                const paragraph = document.createElement('p');
                const button = document.createElement('button');
                const paragraphText = document.createTextNode(cohort[i].id);
-               const buttonText = document.createTextNode('Ingresar')
-
+               const buttonText = document.createTextNode('Entrar')
+               button.dataset.cohort = cohort[i].id;
                paragraph.appendChild(paragraphText);
                paragraphContent.appendChild(paragraph);
                cohortContent.appendChild(paragraphContent);
@@ -29,6 +29,7 @@ let dataCohort = () => {
                cohortContent.appendChild(buttonContent);
 
                elementMain.appendChild(cohortContent);
+               
 
            }
        })
@@ -40,6 +41,14 @@ btnLima.addEventListener('click', () => {dataCohort()
     document.getElementById('btn-venues').style = 'display:none';
     document.getElementById('vacio').style = 'display:block';
 });
+
+
+elementMain.addEventListener('click', (e)=>{
+  console.log(e.target.dataset.cohort);
+  if (e.target.dataset.cohort === 'lim-2018-03-pre-core-pw'){
+      elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
+  }
+})
 
 
 
