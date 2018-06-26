@@ -194,3 +194,19 @@ button {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  #btn-venues{
+    position: absolute;
+    top: 50px; 
+    left: 250px;
+  }
+  #vacio{
+        position: absolute;
+        top: 50px; 
+        left: 50px;
+      }
+      h1{
+        position: absolute;
+        top: 50px; 
+        left: 50px;
+      }
+  
