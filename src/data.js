@@ -1,22 +1,31 @@
-window.computeUsersStats=(users, progress, courses)=>{
-    
-};
+window.computeUsersStats = (users, progress, courses) => {
+    users.map(value => {
+        const idusers = users.id;
+        const idprogress = progress.idusers;
+    }
+
+    )
 
 
 
-window.sortUsers=(users, orderBy, orderDirection)=>{
-
-};
-
-
-
-window.filterUsers=(users, search)=>{
 
 };
 
 
 
-window.processCohortData=(options)=>{
+window.sortUsers = (users, orderBy, orderDirection) => {
+
+};
+
+
+
+window.filterUsers = (users, search) => {
+
+};
+
+
+
+window.processCohortData = (options) => {
 
 }
 

@@ -1,3 +1,9 @@
+/*const btnLimac=document.getElementById('botonlima');
+const btnCdmxc=document.getElementById('botoncdm');
+const btnGdlc=document.getElementById('botonGdljr');
+btnLima.addEventListener
+*/
+
 let lista = document.getElementById('main');
 let elementMain = lista;
 
@@ -65,12 +71,11 @@ let btnSedes = btn;
 
 
 
-/*const btnLima = document.getElementById('botonlima');
+const btnLima = document.getElementById('botonlima');
 btnLima.addEventListener('click', () => {dataCohort()
     document.getElementById('btn-venues').style = 'display:none';
    // document.getElementById('vacio').style = 'display:block';//
 });
-*/
 
 elementMain.addEventListener('click', (e) => {
     console.log(e.target.dataset.cohort);
