@@ -35,7 +35,27 @@ let dataCohort = () => {
         })
 
 }
+const cohorts = ['lim-2018-03', 'lim-2017-09', 'aqp-2017-01', 'gdl-2018-01'];
+const sedesSelect = document.getElementById("sedes");
 
+
+
+
+/*const populateSedesSelect = () => {
+    cohorts.forEach(cohort => {
+        console.log(cohort.split('-', 1));
+        const optionSede=document.createElement('OPTION');
+        optionSede.innerHTML=cohort;
+        let attSedes=document.createAttribute("value");
+        attSedes.value=cohort;
+        optionSede.setAttributeNode(attSedes);
+        sedes.appendChild(optionSede);
+        console.log(cohort);
+    })
+}*/
+
+
+/*
 let btn = document.getElementById('btn-venues');
 let btnSedes = btn;
  let btnCohort = () => {
@@ -62,8 +82,22 @@ let btnSedes = btn;
         })
 
 }
+*/
 
 
+
+
+
+
+/*
+const sedeLima=document.getElementById("lim");
+const selectCohort='http://127.0.0.1:5500/data/cohorts.json'
+const populateSedeLima=()=>{
+    selectCohort.forEach(cohort=>{
+        console.log(cohort.split('-',1));
+    })
+
+}*/
 
 /*const btnLima = document.getElementById('botonlima');
 btnLima.addEventListener('click', () => {dataCohort()
@@ -72,14 +106,14 @@ btnLima.addEventListener('click', () => {dataCohort()
 });
 */
 
-elementMain.addEventListener('click', (e) => {
+/*elementMain.addEventListener('click', (e) => {
     console.log(e.target.dataset.cohort);
     if (e.target.dataset.cohort === 'lim-2018-03-pre-core-pw') {
         elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
     }
 })
 
-
+*/
 
 
 const datadash = (dd) => {
