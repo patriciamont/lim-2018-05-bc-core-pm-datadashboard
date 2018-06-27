@@ -26,6 +26,15 @@ window.filterUsers = (users, search) => {
 
 
 window.processCohortData = (options) => {
+    
+const user = options.cohortData.users;
+const progress = options.cohortData.progress;
+const courses = options.cohortData.coursesIndex;
+
+ const computedUser = computeUserStats(user,progress,courses);
+
+ sortUsers(computedUser,);
+ filterUsers(computedUser,);
 
 }
 
