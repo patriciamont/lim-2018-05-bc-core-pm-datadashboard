@@ -119,40 +119,4 @@ const datadash = (dd) => {
                 });
         });
 };
-<<<<<<< HEAD
-
- 
-//document.getElementById('button').addEventListener('click', mostrar);
-
-/*const redireccionar = ()=>{
-    window.location = "cohort.html";
-}
-const enter = document.getElementById('buttonenter')
-    enter.addEventListener('click', redireccionar);
-
-
-   document.getElementById('buttonData').addEventListener('click', mostrarData);
-    
-     })
-    }
-let tabla=(data)=>{
-    for(let value of data){
-        //console.log(content);
-        content.innerHTML +=`<tr>
-            <td>${value.id}</td>
-            <td>${value.signupCohort}</td>
-            <td>${value.timezone }</td>
-            <td>${value.name}</td>
-            <td>${value.timezone}</td>
-            <td>${value.role}</td>
-        </tr>`
-    //console.log(data['0']);*/
-//}
-
-//}
-
-//let computeUsersStats = [users, progress, courses];
-
-=======
->>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
 
