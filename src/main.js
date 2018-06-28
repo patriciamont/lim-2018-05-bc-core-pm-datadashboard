@@ -68,7 +68,7 @@ const data = (idCohort) => {
 let lista = document.getElementById('main');
 let elementMain = lista;
 
-let dataCohort = () => {
+let dataCohort = (sede) => {
     fetch('https://api.laboratoria.la/cohorts/')
         .then(response => {
             return response.json();
@@ -80,16 +80,16 @@ let dataCohort = () => {
             for (let i = 0; i < cohort.length; i++) {
                 const cohortId = cohort[i].id;
                 //console.log(cohort)
-                //const arrIdCohort = cohortId.split('-');
+                const arrIdCohort = cohortId.split('-');
 
-                //if (arrIdCohort[0] === sede) {
+                if (arrIdCohort[0] === sede) {
                     const cohortContent = document.createElement('div');
                     const paragraphContent = document.createElement('div');
                     const buttonContent = document.createElement('div');
                     const paragraph = document.createElement('p');
                     const button = document.createElement('button');
                     const paragraphText = document.createTextNode(cohortId);
-                    const buttonText = document.createTextNode('Entrar')
+                    const buttonText = document.createTextNode('Entrar');
                     button.dataset.cohort = cohortId;
                     paragraph.appendChild(paragraphText);
                     paragraphContent.appendChild(paragraph);
@@ -104,11 +104,11 @@ let dataCohort = () => {
 
 
             }
-        })
-
+        }})
+    
 }
 
-buttonElement.addEventListener('click', () => { dataCohort(); });
+buttonElement.addEventListener('click', () => { data(); });
 
 resultCohortElement.addEventListener('click', (event) => {
     if (event.target.nodeName === "BUTTON") {
@@ -167,7 +167,7 @@ btntabla.addEventListener('click', () => {
 })}*/
 
 
-/*
+
 const btnLima = document.getElementById("botonlima");
 const btnArequipa = document.getElementById("botonAqp");
 const btnMexico = document.getElementById("botoncdm");
@@ -207,7 +207,7 @@ elementMain.addEventListener('click', (e) => {
         elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
     }
 })
-*/
+
 
 /*
 const datadash = (dd) => {
