@@ -1,10 +1,50 @@
 window.computeUsersStats = (users, progress, courses) => {
+<<<<<<< HEAD
+=======
+    users.map(value => {
+        const idusers = users.id;
+        const idprogress = progress.idusers;
+    }
+
+    )
+
+
+
+
+};
+
+
+
+window.sortUsers = (users, orderBy, orderDirection) => {
+
+};
+>>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
 
 },
   window.sortUsers = (users, orderBy, orderDirection) => {
 
+<<<<<<< HEAD
   }
 window.filterUsers = (users, search) => {
+=======
+
+window.filterUsers = (users, search) => {
+
+};
+
+
+
+window.processCohortData = (options) => {
+    
+const user = options.cohortData.users;
+const progress = options.cohortData.progress;
+const courses = options.cohortData.coursesIndex;
+
+ const computedUser = computeUserStats(user,progress,courses);
+
+ sortUsers(computedUser,);
+ filterUsers(computedUser,);
+>>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
 
 }
 window.processCohortData = (options) => {

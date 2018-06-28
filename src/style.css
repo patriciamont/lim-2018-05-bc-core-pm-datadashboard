@@ -11,6 +11,8 @@
     background-size: cover;
 }
 
+
+
 /*Logo*/
 .logohome{
     text-align: center;
@@ -26,6 +28,10 @@
 /*Box-login*/
 
 .container{
+<<<<<<< HEAD
+=======
+    
+>>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
     width: 700px;
     top: 50%;
     left: 50%;
@@ -35,9 +41,15 @@
 
 .container .login img{
     width: 100px;
+<<<<<<< HEAD
     position: relative;
     top: -60px;
     padding-left: 100px;
+=======
+    
+    top: -50px;
+    left: 100px;
+>>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
     background-position: center;
 }
 
@@ -76,8 +88,14 @@
 }
 
 .login i{
+<<<<<<< HEAD
     margin-left: 60px;
     margin-top: -40px;
+=======
+    
+    left: 65px;
+    margin-top: -25px;
+>>>>>>> a963a8e9c0c1334796ebd762c5e71cf30c1245c2
 }
 .login #buttonenter{
     background-color: #FFE521;
@@ -232,17 +250,17 @@ button {
     transform: translateY(4px);
   }
   #btn-venues{
-    position: absolute;
+    
     top: 50px; 
     left: 250px;
   }
   #vacio{
-        position: absolute;
+        
         top: 50px; 
         left: 50px;
       }
       h1{
-        position: absolute;
+        
         top: 50px; 
         left: 50px;
       }
