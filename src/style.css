@@ -23,23 +23,21 @@
     float: left;
 }
 
-
-
-/*login*/
+/*Box-login*/
 
 .container{
-    position: absolute;
     width: 700px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    padding-top: 250px;
+    padding-left: 400px;
 }
 
 .container .login img{
     width: 100px;
-    position: absolute;
-    top: -50px;
-    left: 100px;
+    position: relative;
+    top: -60px;
+    padding-left: 100px;
     background-position: center;
 }
 
@@ -51,9 +49,13 @@
     border-radius: 20px 0px 0px 20px;
 }
 
+.login .textlogin{
+    margin-top: -50px ;
+}
+
 .container .login h3{
     color: #ffffff;
-    padding-top: 40px;
+    top: 70px;
     text-align: center;
 }
 .container .login h4{ 
@@ -74,11 +76,10 @@
 }
 
 .login i{
-    position: absolute;
-    left: 65px;
-    margin-top: -25px;
+    margin-left: 60px;
+    margin-top: -40px;
 }
-.login #button{
+.login #buttonenter{
     background-color: #FFE521;
     color: #000000;
     font-size: 15px;
@@ -106,59 +107,95 @@
 }
 
 
-/*logo*/
 
-.title{
-    background-color: #000000;
-    text-align: center;
-    height: 60px;
+/*Data*/
+.containerdata{
+    width: 100%;
+    overflow: hidden;
 }
 
-.title img{
+.menu{
+    background-color: #b8b8b8;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
     width: 180px;
-    height: 35px;
-    margin-top: 15px;
+    height: 612px;
+    float: left;
+  
+}
+
+.logo{
+    background-color: #000000;
+    text-align: center;
+    width: 180px;
+    height: 62px;
+}
+
+.logo img{
+    width: 160px;
+    height: 30px;
+    padding-top: 20px;
 }
 
 .image{
+    width: 140px;
     margin-top: 20px;
-    width: 160px;
     border-radius: 50%;
 }
 
-.Menu{
-    background-color: #a0a0a0;
-    color: #ffffff;
-    text-align: center;
-    width: 200px;
-    height: 750px;
-}
-
-h2{
-    margin-top: 10px;
+nav{
+    margin-top: 20px;
 }
 
 nav a{
     display: block;
     text-decoration: none;
-    color: #ffffff;
-    padding: 15px;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
 }
 
-nav a:hover{
-    color: #ffe521;
+nav .exit{
+   margin-top: 150px; 
 }
-/*
-.password{
-    width: 200px;
-    height: 30px;
-    border-radius: 9px;
-    color: #ffffff;
+
+.title{
+    width: 100%;
+    height: 62px; 
+    background-color: #FFE521;
+    margin-left: 180px;
 }
-*/
-.exit{
-   margin-top: 200px; 
+
+.title h2{
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-left: 30px;
 }
+
+th, td{
+    padding: 10px 20px;
+}
+
+thead{
+    background-color: #808080;
+    border-bottom: solid 3px #000000 ;
+}
+
+.containerTable{
+    margin-left: 300px;
+    margin-top: 20px;
+}
+
+table{
+    width: 400px;
+    border-collapse: collapse;
+    left: 250px;
+    margin-top: 20px;
+}
+
 
 footer{
     width: 100%;

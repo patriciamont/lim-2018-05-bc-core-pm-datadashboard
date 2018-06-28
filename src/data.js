@@ -1,173 +1,139 @@
-window.computeUsersStats=(users, progress, courses)=>{
+window.computeUsersStats = (users, progress, courses) => {
+
+},
+  window.sortUsers = (users, orderBy, orderDirection) => {
+
+  }
+window.filterUsers = (users, search) => {
+
+}
+window.processCohortData = (options) => {
+
+}
+
+
+
+
+
+
+
+/*const usersData = () => {
+    for (let name of users) {
+        console.log(name.id);
+    }
+
+};
+
+
+const cohorts = fetch('http://127.0.0.1:5500/data/cohorts.json').then(response => { response.json() });
+const users = fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json').then(response => { response.json() });
+const progress = fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/progress.json').then(response => { response.json() });
+
+Promise.all([cohorts, users, progress])
+    .then(value => {
+        value[0];
+        value[1];
+        value[2];
+    })
+
+fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/progress.json').
+then(response => {
+     response.json() 
+    }).then( data=>{
+        const progress = data;
+
+        for (  progress in progress){
+            console.log('hjajajajja');
+        }
+    }
+
+    );
+
+
+
+
+
+/*window.data = {
+  computeUsersStasts = (user, progress, courses) => {
+    stats =>{
     
-};
-
-
-
-window.sortUsers=(users, orderBy, orderDirection)=>{
-
-};
-
-
-
-window.filterUsers=(users, search)=>{
-
-};
-
-
-
-window.processCohortData=(options)=>{
-
-}
-
-
-
-
-
-
+    }
+  },
+  sortUsers = (users, orderBy, orderDirection) => {
+  },
+  filterUsers = (users, search) => {
+  },
+  processCohortData = (options) => {
+    
+  } 
+}*/
 /*
+let nombreUsuarios = document.getElementById('nombre');
+let cohorts = document.getElementById('cohorts')
 
-
-
-const elementMain = document.getElementById('main');
-
-const dataCohort = () => {
-    fetch('http://127.0.0.1:5500/data/cohorts.json')
-        .then(response => {
-            return response.json();
-        })
-        .then(json => {
-
-            const cohort = json;
-
-            for (let i = 0; i < cohort.length; i++) {
-
-                const cohortContent = document.createElement('div');
-                const paragraphContent = document.createElement('div');
-                const buttonContent = document.createElement('div');
-                const paragraph = document.createElement('p');
-                const button = document.createElement('button');
-                const paragraphText = document.createTextNode(cohort[i].id);
-                const buttonText = document.createTextNode('Ingresar')
-
-                paragraph.appendChild(paragraphText);
-                paragraphContent.appendChild(paragraph);
-                cohortContent.appendChild(paragraphContent);
-
-                button.appendChild(buttonText);
-                buttonContent.appendChild(button);
-                cohortContent.appendChild(buttonContent);
-
-                elementMain.appendChild(cohortContent);
-
-            }
-        })
-
-}
-
-const tableUser = () => {
-    fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json')
-        .then(response => {
-            return response.json();
-        })
-        .then(json => {
-
-            const dataUser = json;
-
-
-
-
-            const tabla = document.createElement("table");
-            const tblBody = document.createElement("tbody");
-
-
-            for (let i = 0; i < dataUser.length; i++) {
-
-                const fila = document.createElement('tr');
-
-                const celda1 = document.createElement("td");
-                const celda2 = document.createElement("td");
-                const celda3 = document.createElement("td");
-                const celda4 = document.createElement("td");
-                const celda5 = document.createElement("td");
-
-
-                const textoCelda1 = document.createTextNode(dataUser[i].name);
-                celda1.appendChild(textoCelda1);
-
-                const textoCelda2 = document.createTextNode(dataUser[i].id);
-                celda2.appendChild(textoCelda2);
-
-                const textoCelda3 = document.createTextNode(dataUser[i].signupCohort);
-                celda3.appendChild(textoCelda3);
-
-                const textoCelda4 = document.createTextNode(dataUser[i].locale);
-                celda4.appendChild(textoCelda4);
-
-                const textoCelda5 = document.createTextNode(dataUser[i].timezone);
-                celda5.appendChild(textoCelda5);
-
-
-
-
-                tblBody.appendChild(celda1);
-                tblBody.appendChild(celda2);
-                tblBody.appendChild(celda3);
-                tblBody.appendChild(celda4);
-                tblBody.appendChild(celda5);
-                tblBody.appendChild(fila);
-
-                // fila.className('fileClass');
-            }
-
-
-
-            tabla.appendChild(tblBody);
-
-            elementMain.appendChild(tabla);
-
-            tabla.setAttribute("border", "1");
-        });
-};
-const ejercicios = () => {
-    fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/progress.json')
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-        })
-
-}
-
-//document.getElementsByClassName('fileClass').addEventListener('click', ()=>{
-//  dataCohort();
-//})
-/*fetch('http://127.0.0.1:5500/data/cohorts.json')
-       .then(response => response.json())
-       .then(response=>{
-           console.log(response);
-       });
-
-}
-
-
-// const dataUserId = (dataUser) => {
-//     return console.log(dataUser[0].id);
-// }
-*/
-/*
-btnBoton = document.getElementById('boton');
-
-btnBoton.addEventListener('click', () => {
-    dataCohort();
-});
-
-btnBoton1 = document.getElementById('boton1');
-
-btnBoton1.addEventListener('click', () => {
-    tableUser();
-});
-btnBoton2 = document.getElementById('boton2');
-
-btnBoton2.addEventListener('click', () => {
-    ejercicios();
-});*/
+fetch('../data/cohorts.json')
+ .then((response) => {
+   return response.json();
+ })
+ .then((myCohort) => {
+   let nombreCohort = '';
+   for (i = 0; i < myCohort.length; i++) {
+     nombreCohort += '<option value="' + myCohort[i].id + '">' + myCohort[i].id + '</option>';
+   }
+   cohorts.innerHTML = nombreCohort;
+   cohorts.addEventListener('change', () => {
+     fetch('../data/cohorts/' + cohorts.value + '/users.json')
+       .then((response) => {
+         return response.json();
+       })
+       .then((myUser) => {
+         let caracter = '';
+         caracter += '<tr>';
+         caracter += '<th> Nombres </th>';
+         caracter += '<th> General % </th>';
+         caracter += '<th> Ejercicios % </th>';
+         caracter += '<th> Quiz % </th>';
+         caracter += '<th> Lecturas % </th>';
+         caracter += '</tr>'
+         fetch('../data/cohorts/' + cohorts.value + '/progress.json')
+           .then((response) => {
+             return response.json();
+           })
+           .then((myProgress) => {
+             let progresoIds = Object.entries(myProgress);
+             for (i = 0; i < myUser.length; i++) {
+                if (myUser[i].role === "student") {
+               caracter += '<tr>';
+               caracter += '<td id= "nombrestabla">' + myUser[i].name + '</td>';
+                  if (myProgress.hasOwnProperty(myUser[i].id)) {
+                 const progressUser = myProgress[myUser[i].id];
+                    if (progressUser.hasOwnProperty('intro')) {
+                   const intro = progressUser.intro;
+                   const unitIntroduction = intro.units['01-introduction'];
+                   const unitVariables = intro.units['02-variables-and-data-types'];
+                   const unitUx = intro.units['03-ux-design'];
+                      const resultadoExecises = unitVariables.parts['06-exercises'].completed;
+                   const resultadoQuiz = unitIntroduction.parts['04-quiz'].completed + unitVariables.parts['05-quiz'].completed + unitUx.parts['03-quiz'].completed;
+                      const resultadoLecturas = unitIntroduction.parts['00-welcome-and-orientation'].completed + unitIntroduction.parts['01-growth-mindset'].completed + unitIntroduction.parts['02-why-learn-to-code'].completed + unitIntroduction.parts['03-your-first-website'].completed + unitVariables.parts['00-values-data-types-and-operators'].completed + unitVariables.parts['01-variables'].completed + unitVariables.parts['02-self-learning-MDN'].completed + unitVariables.parts['03-comments'].completed + unitUx.parts['00-development-team'].completed + unitUx.parts['01-ux-design'].completed + unitUx.parts['02-ux-design-vs-ui-design'].completed;
+                   if (intro.hasOwnProperty('percent')) {
+                     caracter += '<td>' + intro.percent + '</td>';
+                        caracter += '<td>' + resultadoExecises * 100 + '</td>';
+                       caracter += '<td>' + parseInt(resultadoQuiz * 100 / 3) + '</td>';
+                       caracter += '<td>' + parseInt(resultadoLecturas * 100 / 11) + '</td>';
+                       caracter += '</tr>';
+                   }
+                 } else {
+                   caracter += '<td>No inicio</td>';
+                   caracter += '<td>No inicio</td>';
+                   caracter += '<td>No inicio</td>';
+                   caracter += '<td>No inicio</td>';
+                   caracter += '</tr>';
+                 }
+               }
+             }
+              }
+             nombreUsuarios.innerHTML = caracter;
+           })
+       })
+   })
+ })*/
