@@ -1,8 +1,75 @@
+const resultCohortElement = document.getElementById('resultado');
+const buttonElement = document.getElementById('boton');
+
+
+const data = (idCohort) => {
+    const dataCohortUrl = 'https://api.laboratoria.la/cohorts/';
+    const dataUserUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/users';
+    const dataProgressUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/progress';
+
+    fetch(dataCohortUrl).then(response => {
+        const responseCohort = response.json()
+        fetch(dataUserUrl).then(response => {
+            const responseUser = response.json()
+            fetch(dataProgressUrl).then(response => {
+                const responseProgress = response.json()
+
+                Promise.all([responseCohort, responseUser, responseProgress])
+                    .then(value => {
+
+                        const responseCohortValue = value[0];
+                        const responseUserValue = value[1];
+                        const responseProgressValue = value[2];
+
+                        const option = {
+                            cohort: responseCohortValue,
+                            cohortData: {
+                                users: responseUserValue,
+                                progress: responseProgressValue
+                            },
+                            orderBy: 'asc',
+                            search: 'desc'
+                        }
+                        console.log(responseCohortValue);
+                        console.log(responseUserValue);
+                        console.log(responseProgressValue);
+                        
+                        dataUserStudents =  responseUserValue.filter(value=>{
+                            return value.role === 'student';
+                        })
+                        //for (let i in responseProgressValue){
+                        //    i[dataUserStudents]
+                        //}
+
+                        console.log(dataUserStudents);
+
+                      
+                        /*  const exercisesTotal = 0;
+                          const exercisesCompleted = 0;
+                          const exercisesPercent = 0;
+                          const exercisesReads = 'intro'*/
+                       // const courses = ['intro']
+
+
+
+
+                        
+
+                    })
+
+            })
+        })
+    })
+};
+
+
+
+//Esto no se borra
 let lista = document.getElementById('main');
 let elementMain = lista;
 
-let dataCohort = (sede) => {
-    fetch('http://127.0.0.1:5500/data/cohorts.json')
+let dataCohort = () => {
+    fetch('https://api.laboratoria.la/cohorts/')
         .then(response => {
             return response.json();
         })
@@ -12,10 +79,10 @@ let dataCohort = (sede) => {
 
             for (let i = 0; i < cohort.length; i++) {
                 const cohortId = cohort[i].id;
-                console.log(cohort)
-                const arrIdCohort = cohortId.split('-');
+                //console.log(cohort)
+                //const arrIdCohort = cohortId.split('-');
 
-                if (arrIdCohort[0] === sede) {
+                //if (arrIdCohort[0] === sede) {
                     const cohortContent = document.createElement('div');
                     const paragraphContent = document.createElement('div');
                     const buttonContent = document.createElement('div');
@@ -33,13 +100,74 @@ let dataCohort = (sede) => {
                     cohortContent.appendChild(buttonContent);
 
                     elementMain.appendChild(cohortContent);
-                }
+                    button.id=cohortId;
 
 
             }
         })
 
 }
+
+buttonElement.addEventListener('click', () => { dataCohort(); });
+
+resultCohortElement.addEventListener('click', (event) => {
+    if (event.target.nodeName === "BUTTON") {
+        console.log(event);
+        const idCohort = event.target.id;
+        console.log(event.target.id);
+        resultCohortElement.style.display = 'none'
+        data(idCohort);
+    }
+});
+
+
+
+/*const table = document.getElementById("tablename");
+const tableUsers = table;
+const dataUsers = () => {
+    fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json')
+        .then(response => {
+            return response.json();
+        })
+        .then(users => {
+            console.log(users);
+
+            for (let i of users){
+                console.log(i);
+            }
+            for (let i = 0; i < users.length; i++) {
+                const nameUsers = users[i].name;
+                console.log(nameUsers);
+               
+               // const tablename = document.createElement('table');
+                const tblBody = document.createElement('tbody');
+                for (let c = 0; c < users.length; c++) {
+                    const tbr = document.createElement('tr');
+                    for (let t = 0; i < users.length; i++) {
+                        const celda = document.createElement('td');
+                        const textoc = document.createTextNode( nameUsers);
+                        celda.appendChild(textoc);
+                        tbr.appendChild(celda);
+                        tblBody.appendChild(tbr);
+                        //tablename.appendChild(tblBody);
+                        tableUsers.appendChild(tblBody);
+                        btntabla.setAttribute('border', '2');
+                    }
+                }
+            }
+        })
+      
+
+    
+}
+
+const btntabla = document.getElementById("tabla");
+btntabla.addEventListener('click', () => {
+    dataUsers()
+})}*/
+
+
+/*
 const btnLima = document.getElementById("botonlima");
 const btnArequipa = document.getElementById("botonAqp");
 const btnMexico = document.getElementById("botoncdm");
@@ -73,23 +201,15 @@ btnSaoPaulo.addEventListener('click', () => {
     document.getElementById('btn-seat').style = 'display:none';
 })
 
-
-
-/*const btnLima = document.getElementById('botonlima');
-btnLima.addEventListener('click', () => {dataCohort()
-    document.getElementById('btn-venues').style = 'display:none';*/
-// document.getElementById('vacio').style = 'display:block';//
-
-
 elementMain.addEventListener('click', (e) => {
     console.log(e.target.dataset.cohort);
     if (e.target.dataset.cohort === 'lim-2018-03-pre-core-pw') {
         elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
     }
 })
+*/
 
-
-
+/*
 const datadash = (dd) => {
     fetch('http://127.0.0.1:5500/data/cohorts.json')
         .then(function (responseCohort) {
@@ -119,4 +239,4 @@ const datadash = (dd) => {
                 });
         });
 };
-
+*/
