@@ -66,25 +66,54 @@ const datadash = (dd) => {
 
                                     const [cohorts, users, progress] = data;
                                     dd(cohorts, users, progress);
+
+
+                                    const option = {
+                                        cohort: 0,
+                                        cohorData: {
+                                            users: 0,
+                                            progress: 0,
+                                        },
+                                        orderBy: 'asc',
+                                        search: 'desc'
+
+                                    }
                                 });
                         });
                 });
         });
+};
+
+ 
+//document.getElementById('button').addEventListener('click', mostrar);
+
+/*const redireccionar = ()=>{
+    window.location = "cohort.html";
 }
-
-/*
-botonUno = document.getElementById('click');
-botonUno.addEventListener('click', () => {
-    fetch('http://127.0.0.1:5500/data/cohorts.json')
-        .then((response) => {
-            return response.json();
-
-        })
-        .then(json => {
-            console.log
-
-        })
+const enter = document.getElementById('buttonenter')
+    enter.addEventListener('click', redireccionar);
 
 
-})
-*/
+   document.getElementById('buttonData').addEventListener('click', mostrarData);
+    
+     })
+    }
+let tabla=(data)=>{
+    for(let value of data){
+        //console.log(content);
+        content.innerHTML +=`<tr>
+            <td>${value.id}</td>
+            <td>${value.signupCohort}</td>
+            <td>${value.timezone }</td>
+            <td>${value.name}</td>
+            <td>${value.timezone}</td>
+            <td>${value.role}</td>
+        </tr>`
+    //console.log(data['0']);*/
+//}
+
+//}
+
+//let computeUsersStats = [users, progress, courses];
+
+

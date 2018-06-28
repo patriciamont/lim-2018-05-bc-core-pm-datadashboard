@@ -21308,10 +21308,14 @@
                             "exercises": {
                                 "01-coin-convert": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     "copleted": 0
 =======
                                     "completed": 0
 >>>>>>> 21e872472d834417c5807a71cb357b9d3e6919d2
+=======
+                                    "completed": 0
+>>>>>>> 09d270f7c7b4f34590bd7fb4470f00ee50be24dd
                                 },
                                 "02-restaurant-bill": {
                                     "completed": 0
@@ -95774,8 +95778,6 @@
             "completedDuration": 150
         }
     }
+
 }
-<<<<<<< HEAD
-=======
-]
->>>>>>> 21e872472d834417c5807a71cb357b9d3e6919d2
+
