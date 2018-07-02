@@ -3,17 +3,17 @@
     margin: 0;
     font-family: 'Raleway', sans-serif;
 }
-
 .home{
     background-image: url("img/background-inicio.jpg");
-    width: 100%;
-    height: 100vh; 
+    
+    width:100%;
+    
     background-size: cover;
+    overflow: hidden;
 }
 
 
-
-/*Logo*/
+/*logo*/
 .logohome{
     text-align: center;
 }
@@ -24,23 +24,19 @@
     margin: 30px 70px;
     float: left;
 }
-
 /*Box-login*/
 
 .container{
-    
-    width: 700px;
-    top: 50%;
-    left: 50%;
-    padding-top: 250px;
-    padding-left: 400px;
+    width: 800px;
+    height: 400px;
+    margin: 200px 350px;
 }
 
 .container .login img{
     width: 100px;
-    
-    top: -50px;
-    left: 100px;
+    position: relative;
+    top: -60px;
+    padding-left: 100px;
     background-position: center;
 }
 
@@ -53,9 +49,10 @@
 }
 
 .login .textlogin{
-    margin-top: -50px ;
+    margin-top: -50px;
 }
 
+/*login letra*/
 .container .login h3{
     color: #ffffff;
     top: 70px;
@@ -73,15 +70,17 @@
     border: none;
     border-bottom: 2px solid #ffffff;
     margin: 5px 60px;
+    color: #ffffff;
 }
 .login input[type=text]{
     padding-left: 20px;
 }
 
 .login i{
-    
-    left: 65px;
-    margin-top: -25px;
+    margin-left: 60px;
+    position: relative;
+    top: -25px;
+    left: 5px;
 }
 .login #buttonenter{
     background-color: #FFE521;
@@ -90,7 +89,7 @@
     font-weight: bold;
     width: 100px;
     height: 30px;
-    margin: 20px 100px;
+    margin: 5px 100px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -109,7 +108,82 @@
     text-align: justify;
     padding: 50px 30px;
 }
+ /*hasta aqui es todo el css de index.html, en donde se encuentra el login*/
 
+    @media screen and (min-width:480px) and (max-width:780px){
+        .home{
+            background-image: url("img/background-inicio.jpg");
+            
+            width: 80%;
+            
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+    }/*
+        .logohome img{
+            width:200px;
+            height: 35px;
+            margin: 15px 35px;
+        }
+        .container{
+            width: 400px;
+            height: 200px;
+            margin: 100px 175px;
+        }
+        .container .login img{
+            width: 50px;
+            top:-30px;
+            padding-left: 50px;
+        }
+        .container .login{
+            width: 150px;
+            height: 160px;
+
+        }*/
+        /*
+        .login .textlogin{
+            margin-top: -25px;
+        }
+        .container .login h3{
+            top: 35px;
+        }
+        .container .login h4{
+            margin: 2.5px 30px;
+        }
+        .container .login input{
+            width: 85px;
+            height: 10px;
+            border-bottom: 1px solid #ffffff;
+            margin: 5px 30px
+        }
+        .login input[type=text]{
+            padding-left: 10px;
+        }
+        .login i{
+            margin: 30px;
+            top: -12.5px;
+            left: 2.5px;;
+        }
+        .login #buttonenter{
+            font-size: 7.5px;
+            width: 50px;
+            height: 15px;
+            margin: 2.5px 50px;
+
+        }
+    
+        .container .information{
+            width: 170px;
+            height: 160px;
+
+        }
+        .container .information p{
+            line-height: 15px;
+            text-align: justify;
+            padding: 25px 15px;
+        }*/
+    }
 
 
 /*Data*/
@@ -168,7 +242,6 @@ nav .exit{
     width: 100%;
     height: 62px; 
     background-color: #FFE521;
-    margin-left: 180px;
 }
 
 .title h2{
@@ -208,6 +281,7 @@ footer{
     text-align: center;
 }
 
+<<<<<<< HEAD
 .textfooter{
     font-size: 20px;
     color: #ffffff;
@@ -235,3 +309,9 @@ button {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+=======
+        .home{
+            width: 70%;
+        }
+    }
+>>>>>>> 831b390c34ced9a1016ae154bd2889b952cd1186

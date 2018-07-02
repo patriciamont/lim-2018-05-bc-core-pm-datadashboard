@@ -1,66 +1,314 @@
 const resultCohortElement = document.getElementById('resultado');
+const resultUserElement = document.getElementById('tabla');
 const buttonElement = document.getElementById('boton');
+const buttonElementFiltro = document.getElementById('filtro');
+const inputElement = document.getElementById('input');
+
+let orderBy = '';
+let orderDirection = '';
+let search = '';
+let idCohort = '';
+
+const showProcessedData = (resultProcessedData) => {
+
+
+ for (objetUser of resultProcessedData) {
+ const tabla = document.createElement("table");
+ const tblBody = document.createElement("tbody");
+
+ if (objetUser.role === 'student') {
+
+
+ const fila = document.createElement('tr');
+
+ const celda1 = document.createElement("td");
+ const celda2 = document.createElement("td");
+ const celda3 = document.createElement("td");
+ const celda4 = document.createElement("td");
+ const celda5 = document.createElement("td");
+
+
+ const textoCelda1 = document.createTextNode(objetUser.name);
+ celda1.appendChild(textoCelda1);
+
+ const textoCelda2 = document.createTextNode(objetUser.stats.exercises.percent);
+ celda2.appendChild(textoCelda2);
+
+ const textoCelda3 = document.createTextNode(objetUser.stats.reads.percent);
+ celda3.appendChild(textoCelda3);
+
+ const textoCelda4 = document.createTextNode(objetUser.stats.quizzes.percent);
+ celda4.appendChild(textoCelda4);
+
+ const textoCelda5 = document.createTextNode(objetUser.stats.percent);
+ celda5.appendChild(textoCelda5);
+
+
+ tblBody.appendChild(celda1);
+ tblBody.appendChild(celda2);
+ tblBody.appendChild(celda3);
+ tblBody.appendChild(celda4);
+ tblBody.appendChild(celda5);
+ tblBody.appendChild(fila);
+
+ // fila.className('fileClass');
+ }
+
+ tabla.appendChild(tblBody);
+
+ resultUserElement.appendChild(tabla);
+
+ tabla.setAttribute("border", "1");
+ }
+
+};
+
+
+const data = (idCohort, orderBy, orderDirection, search) => {
+
+ fetch('https://api.laboratoria.la/cohorts/').then(responseCohort => {
+
+ fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/users').then(responseUser => {
+
+ fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/progress').then(responseProgress => {
+
+ Promise.all([responseCohort.json(), responseUser.json(), responseProgress.json()])
+ .then(value => {
+ const responseCohortValue = value[0];
+ const responseUserValue = value[1];
+ const responseProgressValue = value[2];
+
+
+ console.log(responseCohortValue);
+ console.log(responseUserValue);
+ console.log(responseProgressValue);
+
+ const dataCohortSelected = responseCohortValue.filter(cohort => cohort.id == idCohort)[0];
+ console.log(dataCohortSelected)
+
+ const options = {
+ cohort: dataCohortSelected,
+ cohortData: {
+ users: responseUserValue,
+ progress: responseProgressValue
+ },
+ orderBy: orderBy,
+ orderDirection: orderDirection,
+ search: search
+ };
+
+ const resultProcessedData = processCohortData(options);
+ console.log(resultProcessedData)
+
+ showProcessedData(resultProcessedData)
+
+ /*
+ const userStudent = user.filter(value => {
+ return value.role == 'student'
+ })
+
+
+ }*/
+
+
+ })
+
+ })
+ })
+ })
+};
+
+
+const dataCohort = () => {
+ fetch('https://api.laboratoria.la/cohorts/')
+ .then(response => {
+ return response.json();
+ })
+ .then(json => {
+
+ const cohortJson = json;
+
+ for (let i = 0; i < cohortJson.length; i++) {
+
+ const cohortContent = document.createElement('div');
+ const paragraphContent = document.createElement('div');
+ const buttonContent = document.createElement('div');
+ const paragraph = document.createElement('p');
+ const button = document.createElement('button');
+ const paragraphText = document.createTextNode(cohortJson[i].id);
+ const buttonText = document.createTextNode('Ingresar')
+
+ paragraph.appendChild(paragraphText);
+ paragraphContent.appendChild(paragraph);
+ cohortContent.appendChild(paragraphContent);
+
+ button.appendChild(buttonText);
+ buttonContent.appendChild(button);
+ cohortContent.appendChild(buttonContent);
+
+ resultCohortElement.appendChild(cohortContent);
+ button.id = cohortJson[i].id;
+ }
+ })
+}
+
+
+buttonElement.addEventListener('click', () => { dataCohort(); });
+
+resultCohortElement.addEventListener('click', (event) => {
+
+ if (event.target.nodeName === "BUTTON") {
+ console.log(event);
+
+ idCohort = event.target.id;
+
+ console.log(event.target.id);
+ resultCohortElement.style.display = 'none'
+
+ orderBy = 'name';
+ orderDirection = 'ASC'
+
+ data(idCohort, orderBy, orderDirection, search);
+ }
+});
+
+buttonElementFiltro.addEventListener('click', () => {
+ const valueInput = inputElement.value;
+ console.log(inputElement.value)
+
+ orderBy = '';
+ orderDirection = '';
+ search = inputElement.value;
+ resultUserElement.innerHTML = '';
+
+ data(idCohort, orderBy, orderDirection, search);
+});
+
+
+
+/*const resultCohortElement = document.getElementById('resultado');
+const buttonElement = document.getElementById('boton');
+const resultUserElement=document.getElementById('tabla');
+
+const showProcessedData = (resultProcessedData) => {
+
+
+    for (objetUser of resultProcessedData) {
+        const tabla = document.createElement("table");
+        const tblBody = document.createElement("tbody");
+
+        if (objetUser.role === 'student') {
+
+
+            const fila = document.createElement('tr');
+
+            const celda1 = document.createElement("td");
+            const celda2 = document.createElement("td");
+            const celda3 = document.createElement("td");
+            const celda4 = document.createElement("td");
+            const celda5 = document.createElement("td");
+
+
+            const textoCelda1 = document.createTextNode(objetUser.name);
+            celda1.appendChild(textoCelda1);
+
+            const textoCelda2 = document.createTextNode(objetUser.stats.exercises.percent);
+            celda2.appendChild(textoCelda2);
+
+            const textoCelda3 = document.createTextNode(objetUser.stats.reads.percent);
+            celda3.appendChild(textoCelda3);
+
+            const textoCelda4 = document.createTextNode(objetUser.stats.quizzes.percent);
+            celda4.appendChild(textoCelda4);
+
+            const textoCelda5 = document.createTextNode(objetUser.stats.percent);
+            celda5.appendChild(textoCelda5);
+
+
+            tblBody.appendChild(celda1);
+            tblBody.appendChild(celda2);
+            tblBody.appendChild(celda3);
+            tblBody.appendChild(celda4);
+            tblBody.appendChild(celda5);
+            tblBody.appendChild(fila);
+
+            // fila.className('fileClass');
+        }
+
+        tabla.appendChild(tblBody);
+
+        resultUserElement.appendChild(tabla);
+
+        tabla.setAttribute("border", "1");
+    }
+
+
+
+
+
+};
+
 
 
 const data = (idCohort) => {
-    const dataCohortUrl = 'https://api.laboratoria.la/cohorts/';
-    const dataUserUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/users';
-    const dataProgressUrl = 'https://api.laboratoria.la/cohorts/' + idCohort + '/progress';
+    fetch('https://api.laboratoria.la/cohorts/').then(responseCohort => {
 
-    fetch(dataCohortUrl).then(response => {
-        const responseCohort = response.json()
-        fetch(dataUserUrl).then(response => {
-            const responseUser = response.json()
-            fetch(dataProgressUrl).then(response => {
-                const responseProgress = response.json()
+        fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/users').then(responseUser => {
 
-                Promise.all([responseCohort, responseUser, responseProgress])
+            fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/progress').then(responseProgress => {
+
+                Promise.all([responseCohort.json(), responseUser.json(), responseProgress.json()])
                     .then(value => {
-
                         const responseCohortValue = value[0];
                         const responseUserValue = value[1];
                         const responseProgressValue = value[2];
 
-                        const option = {
-                            cohort: responseCohortValue,
+
+                        console.log(responseCohortValue);
+                        console.log(responseUserValue);
+                        console.log(responseProgressValue);
+
+                        const dataCohortSelected = responseCohortValue.filter(cohort => cohort.id == idCohort)[0];
+                        console.log(dataCohortSelected)
+
+
+                        const options = {
+                            cohort: dataCohortSelected,
                             cohortData: {
                                 users: responseUserValue,
                                 progress: responseProgressValue
                             },
                             orderBy: 'asc',
-                            search: 'desc'
-                        }
-                        console.log(responseCohortValue);
-                        console.log(responseUserValue);
-                        console.log(responseProgressValue);
-                        
-                        dataUserStudents =  responseUserValue.filter(value=>{
-                            return value.role === 'student';
-                        })
-                        //for (let i in responseProgressValue){
-                        //    i[dataUserStudents]
-                        //}
-
-                        console.log(dataUserStudents);
-
-                      
-                        /*  const exercisesTotal = 0;
-                          const exercisesCompleted = 0;
-                          const exercisesPercent = 0;
-                          const exercisesReads = 'intro'*/
-                       // const courses = ['intro']
+                            search: 'desc',
+                            search: 'Margot'
+                        };
 
 
 
 
-                        
+                        const resultProcessedData = processCohortData(options);
+                        console.log(resultProcessedData)
 
+                        showProcessedData(resultProcessedData)
+
+
+
+                        /*
+                            const userStudent = user.filter(value => {
+                                return value.role == 'student'
+                            })
+
+
+                        }*/
+
+/*
                     })
 
             })
         })
     })
 };
+
 
 
 
@@ -108,7 +356,7 @@ let dataCohort = (sede) => {
     
 }
 
-buttonElement.addEventListener('click', () => { data(); });
+buttonElement.addEventListener('click', () => { dataCohort(); });
 
 resultCohortElement.addEventListener('click', (event) => {
     if (event.target.nodeName === "BUTTON") {
@@ -164,7 +412,9 @@ const dataUsers = () => {
 const btntabla = document.getElementById("tabla");
 btntabla.addEventListener('click', () => {
     dataUsers()
-})}*/
+})}
+
+
 
 
 
@@ -200,43 +450,10 @@ btnSaoPaulo.addEventListener('click', () => {
     dataCohort(valueBtnSaoPaulo)
     document.getElementById('btn-seat').style = 'display:none';
 })
-
+*/
 elementMain.addEventListener('click', (e) => {
     console.log(e.target.dataset.cohort);
     if (e.target.dataset.cohort === 'lim-2018-03-pre-core-pw') {
         elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
     }
 })
-
-
-/*
-const datadash = (dd) => {
-    fetch('http://127.0.0.1:5500/data/cohorts.json')
-        .then(function (responseCohort) {
-            fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json')
-                .then(function (responseUsers) {
-                    fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/progress.json')
-                        .then(function (responseProgress) {
-                            Promise.all([responseCohort.json(), responseUsers.json(), responseProgress.json()])
-                                .then(data => {
-
-                                    const [cohorts, users, progress] = data;
-                                    dd(cohorts, users, progress);
-
-
-                                    const option = {
-                                        cohort: 0,
-                                        cohorData: {
-                                            users: 0,
-                                            progress: 0,
-                                        },
-                                        orderBy: 'asc',
-                                        search: 'desc'
-
-                                    }
-                                });
-                        });
-                });
-        });
-};
-*/
