@@ -10,8 +10,10 @@ Siendo Laboratoria no ajena a esto, surgió la necesidad de contar con una inter
 Crear un aplicativo web que permita a las Training Manager visualizar el progreso de cada estudiante mediante un data dashboard.
 
 Para empazar a desarrollar el producto empezamos haciendo unos sketch para presertarlo a la hora de la entrevista a nuestro usuario.
-![](https://subefotos.com/ver/?77c1d8e104e5549c14e133995682d9d1o.jpg)
-![](https://subefotos.com/ver/?da1fa55f26153c0fb5ca9d5bb3ad577ao.jpg)
+
+![](https://fotos.subefotos.com/e5abad783371db642b67b82e23467d88o.jpg)
+
+![](https://fotos.subefotos.com/fdc08915221370f35d66628683c25f4ao.jpg)
 
 
 ## User Research
@@ -42,9 +44,9 @@ En con conclusión decidimos hacer unas modificaciones a nuestro sketch tomando 
 
 Para comenzar a trabajar nuestro producto hicimos un DFD (Diagrama de flujo de datos), que nos ayudo a realizar nuestro primer HTML y CSS.
 
-![](https://subefotos.com/ver/?4f4e531396c41c876e4c2744d9c0cc11o.png#codigos)
+![](https://fotos.subefotos.com/4f4e531396c41c876e4c2744d9c0cc11o.png)
 
-Luego empezamos a utilizar el LMS y otras páginas wed para buscar información sobre los métodos, eventos, ciclos, funciones que podriamos usar para realizar la parte lógica de nuestro proyecto. Etas son algunas de estas páginas web:
+Luego empezamos a utilizar el LMS y otras páginas wed para buscar información sobre los métodos, eventos, ciclos, funciones que podriamos usar para realizar la parte lógica de nuestro proyecto. Estas son algunas de estas páginas web:
 
 <https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array>
 <https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort>
@@ -55,10 +57,10 @@ Luego empezamos a utilizar el LMS y otras páginas wed para buscar información 
 
 ## Prototipado
 Se diseñaron los siguientes prototipos de alta fidelidad.
-![](https://subefotos.com/ver/?8cf202ea3714268037634b91f75cf98ao.jpg#codigos)
-![](https://subefotos.com/ver/?87fc713f1f305e1b59b72992f13f6300o.jpg#codigos)
-![](https://subefotos.com/ver/?e1318dff857e7be3735d1933fa403e63o.jpg#codigos)
-![](https://subefotos.com/ver/?2f0e331dea518ac0ee9d5cc60d327af6o.jpg#codigos)
+![](https://fotos.subefotos.com/8cf202ea3714268037634b91f75cf98ao.jpg)
+![](https://fotos.subefotos.com/87fc713f1f305e1b59b72992f13f6300o.jpg)
+![](https://fotos.subefotos.com/e1318dff857e7be3735d1933fa403e63o.jpg)
+![](https://fotos.subefotos.com/2f0e331dea518ac0ee9d5cc60d327af6o.jpg)
 
 
 
