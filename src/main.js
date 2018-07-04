@@ -2,7 +2,7 @@
 
 const cohortsSelectedElement = document.getElementById('cohortsSelected');
 const container = document.getElementById('containerdata')
-const containerCohorts = document.getElementById('conteinerCohorts')
+const containerCohorts = document.getElementById('containerCohorts')
 const containerTable = document.getElementById('containerTable')
 const btnLima = document.getElementById("buttonLima");
 const btnArequipa = document.getElementById("buttonAqp");
@@ -164,7 +164,7 @@ btnLima.addEventListener('click', () => {
     const valueBtnLima = btnLima.value;
     dataCohort(valueBtnLima)
     container.style ='display:none';
-    containerCohorts.style ='display:block';
+    containerTable.style ='display:block';
     document.getElementById('text').style = 'display:none';
 })
 
@@ -172,7 +172,7 @@ btnArequipa.addEventListener('click', () => {
     const valueBtnArequipa = btnArequipa.value;
     dataCohort(valueBtnArequipa)
     container.style = 'display:none';
-    containerCohorts.style ='display:block';
+    containerTable.style ='display:block';
     document.getElementById('text').style = 'display:none';
 })
 
@@ -180,21 +180,21 @@ btnMexico.addEventListener('click', () => {
     const valueBtnMexico = btnMexico.value;
     dataCohort(valueBtnMexico)
     container.style ='display:none';
-    containerCohorts.style ='display:block';
+    containerTable.style ='display:block';
     document.getElementById('text').style = 'display:none';
 })
 btnChile.addEventListener('click', () => {
     const valueBtnChile = btnChile.value;
     dataCohort(valueBtnChile)
     container.style ='display:none';
-    containerCohorts.style ='display:block';
+    containerTable.style ='display:block';
     document.getElementById('text').style = 'display:none';
 })
 btnSaoPaulo.addEventListener('click', () => {
     const valueBtnSaoPaulo = btnSaoPaulo.value;
     dataCohort(valueBtnSaoPaulo)
     container.style ='display:none';
-    containerCohorts.style ='display:block';
+    containerTable.style ='display:block';
     document.getElementById('text').style = 'display:none';
 })
 
@@ -206,15 +206,13 @@ btnSaoPaulo.addEventListener('click', () => {
     if (event.target.nodeName === "BUTTON") {
 
         idCohort = event.target.id;
-
-        containerCohorts.style.display = 'none'
+        containerTable.style.display = 'block';
 
         orderBy = 'name';
         orderDirection = 'ASC';
 
         data(idCohort, orderBy, orderDirection, search);
-
-        containerTable.style.display = 'block'
+        containerCohorts.style.display = 'none';
     }
 });
 
