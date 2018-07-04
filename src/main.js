@@ -1,213 +1,58 @@
-const resultCohortElement = document.getElementById('resultado');
-const resultUserElement = document.getElementById('tabla');
-const buttonElement = document.getElementById('boton');
-const buttonElementFiltro = document.getElementById('filtro');
+//Declarando variables
+
+const cohortsSelectedElement = document.getElementById('cohortsSelected');
+const container = document.getElementById('containerdata')
+const containerCohorts = document.getElementById('containerCohorts')
+const containerTable = document.getElementById('containerTable')
+const btnLima = document.getElementById("buttonLima");
+const btnArequipa = document.getElementById("buttonAqp");
+const btnChile = document.getElementById("buttonSdc");
+const btnSaoPaulo = document.getElementById("buttonSpl");
+const btnMexico = document.getElementById("buttonCdm");
+
+
 const inputElement = document.getElementById('input');
+const bodyElement = document.getElementById('body');
+const btnFiler = document.getElementById('filter');
+
+
+const btnsortAscElement01 = document.getElementsByClassName('sortAsc')[0];
+const btnsortAscElement02 = document.getElementsByClassName('sortAsc')[1];
+const btnsortAscElement03 = document.getElementsByClassName('sortAsc')[2];
+const btnsortAscElement04 = document.getElementsByClassName('sortAsc')[3];
+const btnsortAscElement05 = document.getElementsByClassName('sortAsc')[4];
+
+const btnsortDescElement01 = document.getElementsByClassName('sortDesc')[0];
+const btnsortDescElement02 = document.getElementsByClassName('sortDesc')[1];
+const btnsortDescElement03 = document.getElementsByClassName('sortDesc')[2];
+const btnsortDescElement04 = document.getElementsByClassName('sortDesc')[3];
+const btnsortDescElement05 = document.getElementsByClassName('sortDesc')[4];
 
 let orderBy = '';
 let orderDirection = '';
 let search = '';
 let idCohort = '';
 
-const showProcessedData = (resultProcessedData) => {
-
-
- for (objetUser of resultProcessedData) {
- const tabla = document.createElement("table");
- const tblBody = document.createElement("tbody");
-
- if (objetUser.role === 'student') {
-
-
- const fila = document.createElement('tr');
-
- const celda1 = document.createElement("td");
- const celda2 = document.createElement("td");
- const celda3 = document.createElement("td");
- const celda4 = document.createElement("td");
- const celda5 = document.createElement("td");
-
-
- const textoCelda1 = document.createTextNode(objetUser.name);
- celda1.appendChild(textoCelda1);
-
- const textoCelda2 = document.createTextNode(objetUser.stats.exercises.percent);
- celda2.appendChild(textoCelda2);
-
- const textoCelda3 = document.createTextNode(objetUser.stats.reads.percent);
- celda3.appendChild(textoCelda3);
-
- const textoCelda4 = document.createTextNode(objetUser.stats.quizzes.percent);
- celda4.appendChild(textoCelda4);
-
- const textoCelda5 = document.createTextNode(objetUser.stats.percent);
- celda5.appendChild(textoCelda5);
-
-
- tblBody.appendChild(celda1);
- tblBody.appendChild(celda2);
- tblBody.appendChild(celda3);
- tblBody.appendChild(celda4);
- tblBody.appendChild(celda5);
- tblBody.appendChild(fila);
-
- // fila.className('fileClass');
- }
-
- tabla.appendChild(tblBody);
-
- resultUserElement.appendChild(tabla);
-
- tabla.setAttribute("border", "1");
- }
-
-};
-
-
-const data = (idCohort, orderBy, orderDirection, search) => {
-
- fetch('https://api.laboratoria.la/cohorts/').then(responseCohort => {
-
- fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/users').then(responseUser => {
-
- fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/progress').then(responseProgress => {
-
- Promise.all([responseCohort.json(), responseUser.json(), responseProgress.json()])
- .then(value => {
- const responseCohortValue = value[0];
- const responseUserValue = value[1];
- const responseProgressValue = value[2];
-
-
- console.log(responseCohortValue);
- console.log(responseUserValue);
- console.log(responseProgressValue);
-
- const dataCohortSelected = responseCohortValue.filter(cohort => cohort.id == idCohort)[0];
- console.log(dataCohortSelected)
-
- const options = {
- cohort: dataCohortSelected,
- cohortData: {
- users: responseUserValue,
- progress: responseProgressValue
- },
- orderBy: orderBy,
- orderDirection: orderDirection,
- search: search
- };
-
- const resultProcessedData = processCohortData(options);
- console.log(resultProcessedData)
-
- showProcessedData(resultProcessedData)
-
- /*
- const userStudent = user.filter(value => {
- return value.role == 'student'
- })
-
-
- }*/
-
-
- })
-
- })
- })
- })
-};
-
-
-const dataCohort = () => {
- fetch('https://api.laboratoria.la/cohorts/')
- .then(response => {
- return response.json();
- })
- .then(json => {
-
- const cohortJson = json;
-
- for (let i = 0; i < cohortJson.length; i++) {
-
- const cohortContent = document.createElement('div');
- const paragraphContent = document.createElement('div');
- const buttonContent = document.createElement('div');
- const paragraph = document.createElement('p');
- const button = document.createElement('button');
- const paragraphText = document.createTextNode(cohortJson[i].id);
- const buttonText = document.createTextNode('Ingresar')
-
- paragraph.appendChild(paragraphText);
- paragraphContent.appendChild(paragraph);
- cohortContent.appendChild(paragraphContent);
-
- button.appendChild(buttonText);
- buttonContent.appendChild(button);
- cohortContent.appendChild(buttonContent);
-
- resultCohortElement.appendChild(cohortContent);
- button.id = cohortJson[i].id;
- }
- })
-}
-
-
-buttonElement.addEventListener('click', () => { dataCohort(); });
-
-resultCohortElement.addEventListener('click', (event) => {
-
- if (event.target.nodeName === "BUTTON") {
- console.log(event);
-
- idCohort = event.target.id;
-
- console.log(event.target.id);
- resultCohortElement.style.display = 'none'
-
- orderBy = 'name';
- orderDirection = 'ASC'
-
- data(idCohort, orderBy, orderDirection, search);
- }
-});
-
-buttonElementFiltro.addEventListener('click', () => {
- const valueInput = inputElement.value;
- console.log(inputElement.value)
-
- orderBy = '';
- orderDirection = '';
- search = inputElement.value;
- resultUserElement.innerHTML = '';
-
- data(idCohort, orderBy, orderDirection, search);
-});
-
-
-
-/*const resultCohortElement = document.getElementById('resultado');
-const buttonElement = document.getElementById('boton');
-const resultUserElement=document.getElementById('tabla');
+//Función para mostrar en html los estudiantes ordenado y filtrado
 
 const showProcessedData = (resultProcessedData) => {
 
-
+    if (resultProcessedData.length === 0) {
+        bodyElement.innerHTML = 'No se encontraron coincidencias'
+    }
+  
     for (objetUser of resultProcessedData) {
-        const tabla = document.createElement("table");
-        const tblBody = document.createElement("tbody");
 
         if (objetUser.role === 'student') {
 
-
-            const fila = document.createElement('tr');
+            
+            const row = document.createElement('tr');
 
             const celda1 = document.createElement("td");
             const celda2 = document.createElement("td");
             const celda3 = document.createElement("td");
             const celda4 = document.createElement("td");
             const celda5 = document.createElement("td");
-
 
             const textoCelda1 = document.createTextNode(objetUser.name);
             celda1.appendChild(textoCelda1);
@@ -224,33 +69,22 @@ const showProcessedData = (resultProcessedData) => {
             const textoCelda5 = document.createTextNode(objetUser.stats.percent);
             celda5.appendChild(textoCelda5);
 
+            bodyElement.appendChild(celda1);
+            bodyElement.appendChild(celda2);
+            bodyElement.appendChild(celda3);
+            bodyElement.appendChild(celda4);
+            bodyElement.appendChild(celda5);
+            bodyElement.appendChild(row);
 
-            tblBody.appendChild(celda1);
-            tblBody.appendChild(celda2);
-            tblBody.appendChild(celda3);
-            tblBody.appendChild(celda4);
-            tblBody.appendChild(celda5);
-            tblBody.appendChild(fila);
-
-            // fila.className('fileClass');
         }
-
-        tabla.appendChild(tblBody);
-
-        resultUserElement.appendChild(tabla);
-
-        tabla.setAttribute("border", "1");
+       
     }
-
-
-
-
-
 };
 
+//Función para procesar los datos, retorna el resultado de la función processCohortData() 
 
+const data = (idCohort, orderBy, orderDirection, search) => {
 
-const data = (idCohort) => {
     fetch('https://api.laboratoria.la/cohorts/').then(responseCohort => {
 
         fetch('https://api.laboratoria.la/cohorts/' + idCohort + '/users').then(responseUser => {
@@ -263,14 +97,7 @@ const data = (idCohort) => {
                         const responseUserValue = value[1];
                         const responseProgressValue = value[2];
 
-
-                        console.log(responseCohortValue);
-                        console.log(responseUserValue);
-                        console.log(responseProgressValue);
-
                         const dataCohortSelected = responseCohortValue.filter(cohort => cohort.id == idCohort)[0];
-                        console.log(dataCohortSelected)
-
 
                         const options = {
                             cohort: dataCohortSelected,
@@ -278,45 +105,24 @@ const data = (idCohort) => {
                                 users: responseUserValue,
                                 progress: responseProgressValue
                             },
-                            orderBy: 'asc',
-                            search: 'desc',
-                            search: 'Margot'
+                            orderBy: orderBy,
+                            orderDirection: orderDirection,
+                            search: search
                         };
 
-
-
-
                         const resultProcessedData = processCohortData(options);
-                        console.log(resultProcessedData)
 
                         showProcessedData(resultProcessedData)
 
-
-
-                        /*
-                            const userStudent = user.filter(value => {
-                                return value.role == 'student'
-                            })
-
-
-                        }*/
-
-/*
                     })
-
             })
         })
     })
 };
 
+//Función para mostrar mostrar los cohorts por sede
 
-
-
-//Esto no se borra
-let lista = document.getElementById('main');
-let elementMain = lista;
-
-let dataCohort = (sede) => {
+const dataCohort = (place) => {
     fetch('https://api.laboratoria.la/cohorts/')
         .then(response => {
             return response.json();
@@ -324,136 +130,218 @@ let dataCohort = (sede) => {
         .then(json => {
 
             const cohort = json;
+            for (select of cohort) {
+                const cohortId = select.id.split('-');
 
-            for (let i = 0; i < cohort.length; i++) {
-                const cohortId = cohort[i].id;
-                //console.log(cohort)
-                const arrIdCohort = cohortId.split('-');
-
-                if (arrIdCohort[0] === sede) {
+                if (cohortId[0] === place) {
                     const cohortContent = document.createElement('div');
+                    cohortContent.setAttribute('id','cohorts');
                     const paragraphContent = document.createElement('div');
-                    const buttonContent = document.createElement('div');
+                    paragraphContent.setAttribute('id','textCohort');
                     const paragraph = document.createElement('p');
+                    const buttonContent = document.createElement('div');
+                    buttonContent.setAttribute('id','buttonCohort');
+                    const paragraphText = document.createTextNode(select.id);
                     const button = document.createElement('button');
-                    const paragraphText = document.createTextNode(cohortId);
                     const buttonText = document.createTextNode('Entrar');
+
+                    
                     button.dataset.cohort = cohortId;
                     paragraph.appendChild(paragraphText);
                     paragraphContent.appendChild(paragraph);
                     cohortContent.appendChild(paragraphContent);
-
                     button.appendChild(buttonText);
                     buttonContent.appendChild(button);
                     cohortContent.appendChild(buttonContent);
-
-                    elementMain.appendChild(cohortContent);
-                    button.id=cohortId;
-
-
-            }
-        }})
-    
-}
-
-buttonElement.addEventListener('click', () => { dataCohort(); });
-
-resultCohortElement.addEventListener('click', (event) => {
-    if (event.target.nodeName === "BUTTON") {
-        console.log(event);
-        const idCohort = event.target.id;
-        console.log(event.target.id);
-        resultCohortElement.style.display = 'none'
-        data(idCohort);
-    }
-});
-
-
-
-/*const table = document.getElementById("tablename");
-const tableUsers = table;
-const dataUsers = () => {
-    fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json')
-        .then(response => {
-            return response.json();
-        })
-        .then(users => {
-            console.log(users);
-
-            for (let i of users){
-                console.log(i);
-            }
-            for (let i = 0; i < users.length; i++) {
-                const nameUsers = users[i].name;
-                console.log(nameUsers);
-               
-               // const tablename = document.createElement('table');
-                const tblBody = document.createElement('tbody');
-                for (let c = 0; c < users.length; c++) {
-                    const tbr = document.createElement('tr');
-                    for (let t = 0; i < users.length; i++) {
-                        const celda = document.createElement('td');
-                        const textoc = document.createTextNode( nameUsers);
-                        celda.appendChild(textoc);
-                        tbr.appendChild(celda);
-                        tblBody.appendChild(tbr);
-                        //tablename.appendChild(tblBody);
-                        tableUsers.appendChild(tblBody);
-                        btntabla.setAttribute('border', '2');
-                    }
+                    cohortsSelectedElement.appendChild(cohortContent);
+                    
+                    button.id = select.id; 
                 }
             }
         })
-      
-
-    
-}
-
-const btntabla = document.getElementById("tabla");
-btntabla.addEventListener('click', () => {
-    dataUsers()
-})}
-
-
-
-
-
-const btnLima = document.getElementById("botonlima");
-const btnArequipa = document.getElementById("botonAqp");
-const btnMexico = document.getElementById("botoncdm");
-const btnChile = document.getElementById("botonsdc");
-const btnSaoPaulo = document.getElementById("botonspl");
+};
 
 btnLima.addEventListener('click', () => {
     const valueBtnLima = btnLima.value;
     dataCohort(valueBtnLima)
-    document.getElementById('btn-seat').style = 'display:none';
+    container.style ='display:none';
+    containerTable.style ='display:block';
+    document.getElementById('text').style = 'display:none';
 })
 btnArequipa.addEventListener('click', () => {
     const valueBtnArequipa = btnArequipa.value;
     dataCohort(valueBtnArequipa)
-    document.getElementById('btn-seat').style = 'display:none';
+    container.style = 'display:none';
+    containerTable.style ='display:block';
+    document.getElementById('text').style = 'display:none';
 })
 
 btnMexico.addEventListener('click', () => {
     const valueBtnMexico = btnMexico.value;
     dataCohort(valueBtnMexico)
-    document.getElementById('btn-seat').style = 'display:none';
+    container.style ='display:none';
+    containerTable.style ='display:block';
+    document.getElementById('text').style = 'display:none';
 })
 btnChile.addEventListener('click', () => {
     const valueBtnChile = btnChile.value;
     dataCohort(valueBtnChile)
-    document.getElementById('btn-seat').style = 'display:none';
+    container.style ='display:none';
+    containerTable.style ='display:block';
+    document.getElementById('text').style = 'display:none';
 })
 btnSaoPaulo.addEventListener('click', () => {
     const valueBtnSaoPaulo = btnSaoPaulo.value;
     dataCohort(valueBtnSaoPaulo)
-    document.getElementById('btn-seat').style = 'display:none';
+    container.style ='display:none';
+    containerTable.style ='display:block';
+    document.getElementById('text').style = 'display:none';
 })
-*/
-elementMain.addEventListener('click', (e) => {
-    console.log(e.target.dataset.cohort);
-    if (e.target.dataset.cohort === 'lim-2018-03-pre-core-pw') {
-        elementMain.innerHTML = `<div>Hola Mundo ${e.target.dataset.cohort}</div>`;
+
+
+ //Evento para mostrar la lista de estudiantes del cohort seleccionado
+
+ cohortsSelectedElement.addEventListener('click', (event) => {
+
+    if (event.target.nodeName === "BUTTON") {
+
+        idCohort = event.target.id;
+        containerTable.style.display = 'block';
+
+        orderBy = 'name';
+        orderDirection = 'ASC';
+
+        data(idCohort, orderBy, orderDirection, search);
+        containerCohorts.style.display = 'none';
     }
-})
+});
+
+//Evento para filtrar
+
+btnFiler.addEventListener('click', () => {
+
+    orderBy = 'name';
+    orderDirection = 'ASC';
+    search = inputElement.value;
+    bodyElement.innerHTML = '';
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+
+//Eventos para ordenar
+
+btnsortAscElement01.addEventListener('click', () => {
+
+    orderBy = 'name';
+    orderDirection = 'ASC';
+    bodyElement.innerHTML = '';
+    btnsortAscElement01.style.display = 'none';
+    btnsortDescElement01.style.display = 'block';
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortDescElement01.addEventListener('click', () => {
+
+    orderBy = 'name';
+    orderDirection = 'DESC';
+    bodyElement.innerHTML = '';
+
+    btnsortDescElement01.style.display = 'none';
+    btnsortAscElement01.style.display = 'block';
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortAscElement02.addEventListener('click', () => {
+
+    orderBy = 'exercises percent';
+    orderDirection = 'DESC';
+    bodyElement.innerHTML = '';
+    btnsortAscElement02.style.display = 'none';
+    btnsortDescElement02.style.display = 'block';
+
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortDescElement02.addEventListener('click', () => {
+
+    orderBy = 'exercises percent';
+    orderDirection = 'ASC';
+    bodyElement.innerHTML = '';
+
+    btnsortDescElement02.style.display = 'none';
+    btnsortAscElement02.style.display = 'block';
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortAscElement03.addEventListener('click', () => {
+
+    orderBy = 'reads percent';
+    orderDirection = 'DESC';
+    bodyElement.innerHTML = '';
+    btnsortAscElement03.style.display = 'none';
+    btnsortDescElement03.style.display = 'block';
+
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortDescElement03.addEventListener('click', () => {
+
+    orderBy = 'reads percent';
+    orderDirection = 'ASC';
+    bodyElement.innerHTML = '';
+
+    btnsortDescElement03.style.display = 'none';
+    btnsortAscElement03.style.display = 'block';
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortAscElement04.addEventListener('click', () => {
+
+    orderBy = 'quizzes percent';
+    orderDirection = 'DESC';
+    bodyElement.innerHTML = '';
+    btnsortAscElement04.style.display = 'none';
+    btnsortDescElement04.style.display = 'block';
+
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortDescElement04.addEventListener('click', () => {
+
+    orderBy = 'quizzes percent';
+    orderDirection = 'ASC';
+    bodyElement.innerHTML = '';
+
+    btnsortDescElement04.style.display = 'none';
+    btnsortAscElement04.style.display = 'block';
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortAscElement05.addEventListener('click', () => {
+
+    orderBy = 'percent';
+    orderDirection = 'DESC';
+    bodyElement.innerHTML = '';
+    btnsortAscElement05.style.display = 'none';
+    btnsortDescElement05.style.display = 'block';
+
+
+
+    data(idCohort, orderBy, orderDirection, search);
+});
+btnsortDescElement05.addEventListener('click', () => {
+
+    orderBy = 'percent';
+    orderDirection = 'ASC';
+    bodyElement.innerHTML = '';
+
+    btnsortDescElement05.style.display = 'none';
+    btnsortAscElement05.style.display = 'block';
+
+    data(idCohort, orderBy, orderDirection, search);
+});

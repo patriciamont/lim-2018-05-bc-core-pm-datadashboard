@@ -12,24 +12,20 @@
     overflow: hidden;
 }
 
+/*Box-login*/
 
-/*logo*/
-.logohome{
-    text-align: center;
+.container{
+    width: 700px;
+    height: 400px;
+    padding: 220px 350px;
 }
 
+/*Logo*/
 .logohome img{
     width: 400px;
     height: 70px;
     margin: 30px 70px;
     float: left;
-}
-/*Box-login*/
-
-.container{
-    width: 800px;
-    height: 400px;
-    margin: 200px 350px;
 }
 
 .container .login img{
@@ -44,7 +40,7 @@
     width: 300px;
     height: 320px;
     float: left;
-    background:  rgba(0,0,0, .5);  
+    background:  rgba(0,0,0, .6);  
     border-radius: 20px 0px 0px 20px;
 }
 
@@ -68,19 +64,21 @@
     height: 20px;
     background: transparent;
     border: none;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
     margin: 5px 60px;
     color: #ffffff;
 }
 .login input[type=text]{
     padding-left: 20px;
+    color: #FFFFFF;
+    font-size: 17px;
 }
 
 .login i{
     margin-left: 60px;
     position: relative;
     top: -25px;
-    left: 5px;
+    left: 4px;
 }
 .login #buttonenter{
     background-color: #FFE521;
@@ -108,122 +106,43 @@
     text-align: justify;
     padding: 50px 30px;
 }
- /*hasta aqui es todo el css de index.html, en donde se encuentra el login*/
-
-    @media screen and (min-width:480px) and (max-width:780px){
-        .home{
-            background-image: url("img/background-inicio.jpg");
-            
-            width: 80%;
-            
-            background-size: cover;
-            overflow: hidden;
-        }
-        
-    }/*
-        .logohome img{
-            width:200px;
-            height: 35px;
-            margin: 15px 35px;
-        }
-        .container{
-            width: 400px;
-            height: 200px;
-            margin: 100px 175px;
-        }
-        .container .login img{
-            width: 50px;
-            top:-30px;
-            padding-left: 50px;
-        }
-        .container .login{
-            width: 150px;
-            height: 160px;
-
-        }*/
-        /*
-        .login .textlogin{
-            margin-top: -25px;
-        }
-        .container .login h3{
-            top: 35px;
-        }
-        .container .login h4{
-            margin: 2.5px 30px;
-        }
-        .container .login input{
-            width: 85px;
-            height: 10px;
-            border-bottom: 1px solid #ffffff;
-            margin: 5px 30px
-        }
-        .login input[type=text]{
-            padding-left: 10px;
-        }
-        .login i{
-            margin: 30px;
-            top: -12.5px;
-            left: 2.5px;;
-        }
-        .login #buttonenter{
-            font-size: 7.5px;
-            width: 50px;
-            height: 15px;
-            margin: 2.5px 50px;
-
-        }
-    
-        .container .information{
-            width: 170px;
-            height: 160px;
-
-        }
-        .container .information p{
-            line-height: 15px;
-            text-align: justify;
-            padding: 25px 15px;
-        }*/
-    }
-
 
 /*Data*/
-.containerdata{
-    width: 100%;
-    overflow: hidden;
-}
 
-.menu{
+.main{
     background-color: #b8b8b8;
     color: #000000;
     font-weight: bold;
     text-align: center;
-    width: 180px;
+    width: 193px;
     height: 612px;
     float: left;
-  
 }
+
 
 .logo{
     background-color: #000000;
     text-align: center;
-    width: 180px;
+    width: 193px;
     height: 62px;
 }
 
 .logo img{
     width: 160px;
     height: 30px;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
 .image{
     width: 140px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 50%;
 }
 
 nav{
     margin-top: 20px;
+    font-size: 18px;
 }
 
 nav a{
@@ -240,48 +159,422 @@ nav .exit{
 
 .title{
     width: 100%;
-    height: 62px; 
+    height: 62px;
     background-color: #FFE521;
 }
 
-.title h2{
-    color: #000000;
-    font-size: 30px;
-    font-weight: bold;
+.title p{
+    font-size: 32px;
+    font-weight: bolder;
     padding-top: 15px;
-    padding-left: 30px;
+    padding-left: 40px;
 }
-
-th, td{
-    padding: 10px 20px;
-}
-
-thead{
-    background-color: #808080;
-    border-bottom: solid 3px #000000 ;
-}
-
-.containerTable{
-    margin-left: 300px;
-    margin-top: 20px;
-}
-
-table{
-    width: 400px;
-    border-collapse: collapse;
-    left: 250px;
-    margin-top: 20px;
-}
-
 
 footer{
     width: 100%;
     height: 50px;
     background-color: #000000;
     text-align: center;
+   
 }
 
-        .home{
-            width: 70%;
-        }
+.textfooter{
+    font-size: 18px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+
+/*ContainerSedes*/
+#containerdata{
+    width: 100%;
+    height: 612px;
+}
+
+.containersedes{
+    height: 612px;
+    overflow: hidden;
+}
+
+.containermap{
+    width: 100%;
+    height: 612px;
+    /*background: #E3E3E1;*/
+    background: #E6E6E6;
+}
+
+#containermap{
+    overflow: hidden;
+}
+
+#imgmap{
+    float: left;
+}
+
+#imgmap img{
+    width: 450px;
+    margin-top: 50px;
+    margin-left: 100px;
+    border: #000000 dashed 1.2px;
+}
+
+#btn-sedes{
+    width: 30%;
+    height: 60%;
+    text-align: center;
+    float: left;
+    margin: 100px 100px;
+}
+
+#btn-sedes h2{
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+    width: 150px;
+    height: 40px;
+    background-color: #FFE521;
+    font-size: 15px;
+    font-weight: bold;;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#conteinerCohorts{
+    width: 100%;
+
+}
+#textCohort p{
+ text-transform: uppercase;
+}
+
+#cohortsSelected{
+    width: 100%;
+    height: 550px;
+    overflow-y: scroll;
+    background: #E6E6E6;
+}
+
+#table{
+    width: 100%;
+    height: 550px;
+    overflow-y: scroll;
+}
+
+#cohorts{ 
+    background-color: #ffffff;
+    width: 85%;
+    height: 12%;
+    margin: 30px 100px;
+    border-radius: 10px;
+}
+
+#buttonCohort button{
+    width: 100px;
+    height: 30px;
+    background-color: #FFE521;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+    margin-top: 0px;
+}
+#textCohort{
+    padding: 0px 20px;
+    font-size: 20px;
+}
+#input{
+    width: 70%;
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 12px;
+    margin-right: 5px;
+}
+#filter{
+    width: 80px;
+    height: 35px;
+    background-color: #FFE521;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+    margin-top: 7px;
+}
+
+/*table css*/
+
+#containerTable{
+    width: 100%;
+    height: 612px;
+    background-color: #E6E6E6;
+}
+.tableUserStats{
+    padding: 1px;
+    width: 100%;
+    height: 550px;
+    overflow-y: scroll;
+}
+
+#filterInput{
+    width: 45%;
+    float: right;
+}
+
+table {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+
+}
+ thead{
+    width: 100%;   
+ }
+ tbody{
+    width: 100%;  
+ }
+
+.columnName{
+    width: 30%;  
+}
+.columnExercises{
+    width: 15%;
+}
+.columnReads{
+    width: 15%;
+}
+.columnQuizzes{
+    width: 15%;
+}
+.columnGeneral{
+    width: 15%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+
+}
+
+th:nth-child(even){
+    background-color: #ffff;
+}
+th button{
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    border: transparent;
+}
+th button::after{
+    content: url('https://thumb.ibb.co/jZXaWd/sort_arrows_couple_pointing_up_and_down.png');  
+}
+.sortAsc{
+    display: block;
+}
+.sortDesc{
+    display: none;
+}
+
+@media screen and (max-width: 64em){
+    .containerdata{ 
+        width: 100%;
+        height: 612px;
     }
+    .containersedes{
+        height: 612px;
+    }
+    .main{
+        width: 160px;
+        height: 612px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 30px;
+    }
+    #imgmap img{
+        width: 350px;
+        margin-left: 50px;
+    }
+    #btn-sedes{
+        width: 30%;
+        height: 60%;
+        margin: 60px 90px;
+    }
+
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 150px;
+        height: 35px;
+        font-size: 15px;
+    }
+    #containerdata{
+        height: 612px;
+    }
+    .containermap{
+        height: 612px;
+    }
+}
+
+
+@media screen and (max-width: 60em) {
+
+}
+@media screen and (max-width: 48em) {
+    .containerdata{ 
+        width: 100%;
+        height: 550px;
+
+    }
+    .main{
+        width: 160px;
+        height: 550px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main{
+        width: 160px;
+        height: 550px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 25px;
+    }
+    #imgmap img{
+        width: 270px;
+        margin-left: 50px;
+    }
+   
+    #btn-sedes h2{
+        font-size: 18px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 140px;
+        height: 30px;
+        font-size: 15px;
+    }
+    #containermap{
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 37.5em){
+    .containerdata{ 
+        width:100%;
+    }
+    .main{
+        width: 160px;
+        height: 612px;
+    }
+    .logo{
+        width: 160px;
+    }
+    .logo img {
+        width: 140px;
+        height: 25px;
+        padding-top: 20px;
+    }
+    .image{
+        width: 120px;
+    }
+    .main{
+        height: 550px;
+    }
+    .main h2{
+        font-size: 20px;
+    }
+    .main nav{
+        font-size: 15px;
+    }
+    #text{
+        font-size: 27px;
+    }
+    #imgmap img{
+        width: 280px;
+        margin-left: 50px;
+    }
+    #btn-sedes{
+        margin-top: 50px;
+    }
+    #btn-sedes h2{
+       font-size: 17px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 140px;
+        height: 30px;
+        font-size: 14px;
+    }
+    #containermap{
+        height: 488px;
+    }
+}
+
+@media screen and (max-width: 30em){
+    .containerdata{ 
+        width:100%;
+    }
+    .navigation{
+        display: block;
+    }
+    .main{
+        display: none;
+    }
+    #text{
+        font-size: 24px;
+    }
+    #imgmap img{
+        width: 250px;
+        margin-left: 30px;
+    }
+    #btn-sedes{
+        margin-top: 70px;
+    }
+    #btn-sedes h2{
+       font-size: 15px;
+    }
+    #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
+        width: 130px;
+        height: 20px;
+        font-size: 13px;
+    }
+    #containermap{
+        height: 488px;
+    }
+}

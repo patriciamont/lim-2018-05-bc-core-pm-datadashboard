@@ -1,10 +1,10 @@
-# **Data Dashboard**
+﻿# **PPROYECTO DATA DASHBOARD**
 
-## Introducción
+## Introducción:
 La aparición de la tecnología a creado nuevas formas de almacenar data, sin embargo se genera gran cantidad de data, que por sí sola son de poca utilidad.
 Siendo Laboratoria no ajena a esto, surgió la necesidad de contar con una interfaz que permita que multiples usuarios(las Training Managers de todas sedes) puedan acceder al mismo tiempo si así lo desean, para visualizar el progreso de las estudiantes, como también los datos de las postulantes y egresadas de diferentes sedes.
 
-## Producto Data Laboratoria
+## Producto Data Laboratoria:
 
 ## Objetivo
 Crear un aplicativo web que permita a las Training Manager visualizar el progreso de cada estudiante mediante un data dashboard.
@@ -61,6 +61,10 @@ Se diseñaron los siguientes prototipos de alta fidelidad.
 ![](https://fotos.subefotos.com/87fc713f1f305e1b59b72992f13f6300o.jpg)
 ![](https://fotos.subefotos.com/e1318dff857e7be3735d1933fa403e63o.jpg)
 ![](https://fotos.subefotos.com/2f0e331dea518ac0ee9d5cc60d327af6o.jpg)
+
+##Test
+
+![](https://fotos.subefotos.com/a5042703879564db78af7225a7653951o.png)
 
 
 
