@@ -232,7 +232,6 @@ footer{
     font-weight: bolder;
 }
 
-<<<<<<< HEAD
 #btn-sedes .buttonLima, .buttonAqp, .buttonSdc, .buttonCdm, .buttonSpl{ 
     width: 150px;
     height: 40px;
@@ -583,6 +582,4 @@ th button::after{
     .home{
             width: 70%;
         }
-    }
->>>>>>> 831b390c34ced9a1016ae154bd2889b952cd1186
->>>>>>> c2f6b30e647fcc3cdaf860c108a1a47ed378aeca
+    
